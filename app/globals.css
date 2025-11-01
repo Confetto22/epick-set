@@ -44,6 +44,10 @@
 }
 
 
+.hero {
+    @apply bg-linear-to-tr from-[#000000] via-[#061c64c1] to-[#000000];
+}
+
 /* .hero_gradient {
     background: linear-gradient(0deg, #FFFFFF, #FFFFFF),
         linear-gradient(271.06deg, rgba(0, 122, 255, 0.8) 14.34%, rgba(203, 48, 224, 0.8) 60.04%);
