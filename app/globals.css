@@ -1,26 +1,50 @@
 @import "tailwindcss";
 
+
+* {
+    margin: 0;
+    /* padding: 0; */
+    box-sizing: border-box;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --main-color: #0C081F;
+
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+.vertical-carousel .swiper,
+.horizontal-carousel .swiper {
+    width: 100%;
+    max-height: 500px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.vertical-carousel .swiper-slide,
+.horizontal-carousel .swiper {
+    text-align: center;
+    font-size: 18px;
+    background: #444;
+    height: auto;
+
+    justify-content: center;
+    align-items: center;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.vertical-carousel .swiper-slide img,
+.horizontal-carousel .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
+
+.mySwiper .swiper-wrapper {
+    transition-timing-function: linear !important;
+    width: 100%;
+}
+
+
+/* .hero_gradient {
+    background: linear-gradient(0deg, #FFFFFF, #FFFFFF),
+        linear-gradient(271.06deg, rgba(0, 122, 255, 0.8) 14.34%, rgba(203, 48, 224, 0.8) 60.04%);
+} */
