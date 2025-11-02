@@ -78,7 +78,7 @@ const HeroCard = () => {
           </p>
         </div>
 
-        <div className="flex flex-col justify-center md:flex-row w-full gap-6 pt-4">
+        <div className="flex flex-col justify-center md:justify-start md:flex-row w-full gap-6 pt-4">
           <button className="bg-white text-black px-5 py-2.5 rounded-lg font-medium hover:bg-gray-100 transition-colors w-full md:w-auto">
             Sign Up
           </button>
