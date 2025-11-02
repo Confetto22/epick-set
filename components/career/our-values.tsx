@@ -3,73 +3,88 @@ import { Music, Users, Heart, Globe, Zap, TrendingUp } from "lucide-react";
 const OurValues = () => {
   const values = [
     {
-      icon: <Music className="w-6 h-6" />,
+      icon: <Music className="size-6" />,
       title: "Music First",
       description:
         "We're building for musicians. Every decision we make starts with how it serves the music community.",
     },
     {
-      icon: <Users className="w-6 h-6" />,
+      icon: <Users className="size-6" />,
       title: "Collaborative Spirit",
       description:
         "Just like a great band, we believe in the power of collaboration and diverse perspectives.",
     },
     {
-      icon: <Heart className="w-6 h-6" />,
+      icon: <Heart className="size-6" />,
       title: "Work-Life Harmony",
       description:
         "We understand the importance of balance, creativity, and time for your own music.",
     },
     {
-      icon: <Globe className="w-6 h-6" />,
+      icon: <Globe className="size-6" />,
       title: "Remote-First",
       description:
         "Work from anywhere. We believe great talent exists everywhere, not just in one location.",
     },
     {
-      icon: <Zap className="w-6 h-6" />,
+      icon: <Zap className="size-6" />,
       title: "Innovation",
       description:
         "We're constantly pushing boundaries to create tools that make musicians' lives easier.",
     },
     {
-      icon: <TrendingUp className="w-6 h-6" />,
+      icon: <TrendingUp className="size-6" />,
       title: "Growth Mindset",
       description:
         "We invest in our team's learning and development, both professionally and personally.",
     },
   ];
 
-  return (
-    <section className="py-16 px-6 justify-center flex bg-[#131026]">
-      <div className="max-w-6xl grid gap-7 mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-white text-3xl md:text-4xl font-bold mb-4">
-            Our Values
-          </h2>
-          <p className="text-gray-300 text-lg">
-            These principles guide everything we do at EpickSet
-          </p>
-        </div>
+  // Card width mapping from Figma
+  // const cardWidths = [288, 284, 263, 286, 288, 272];
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {values.map((value, index) => (
-            <div
-              key={index}
-              className="bg-[#0c081f] border flex flex-col items-start gap-4 border-gray-700 rounded-lg p-6 hover:border-purple-500 transition-colors"
-            >
-              <div className="bg-linear-to-b from-[#9715FA] to-[#235CFB] w-12 h-12 rounded-full flex items-center justify-center mb-4 text-white">
-                {value.icon}
+  return (
+    <section className="bg-background dark:bg-secondary px-6 md:px-[120px] py-12 md:py-16 flex flex-col items-center justify-center gap-12">
+      {/* Header Section */}
+      <div className="flex flex-col gap-4 items-center justify-center w-full">
+        <h2 className="text-foreground font-bold text-4xl md:text-4xl leading-normal text-center">
+          Our Values
+        </h2>
+        <p className="text-muted-foreground text-base md:text-lg leading-[28px] tracking-[-0.4395px] text-center font-normal">
+          These principles guide everything we do at EpickSet
+        </p>
+      </div>
+
+      {/* Cards Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start justify-items-center w-full">
+        {values.map((value, index) => (
+          <div
+            key={index}
+            className="bg-background border border-border rounded-[10px] max-w-md h-full flex flex-col items-start p-px"
+          >
+            <div className="flex flex-col gap-3 items-start p-6">
+              {/* Icon Circle */}
+              <div className="bg-linear-to-b from-primary to-blue rounded-full size-12 flex items-center justify-center shrink-0">
+                <div className="text-primary-foreground size-6">
+                  {value.icon}
+                </div>
               </div>
-              <h3 className="text-white text-xl font-semibold mb-3">
+
+              {/* Title - Centered */}
+              <h3 className="text-card-foreground text-xl font-semibold leading-normal w-full">
                 {value.title}
               </h3>
-              <p className="text-gray-300 leading-relaxed">
+
+              {/* Description - with specific width */}
+              <p
+                className="text-muted-foreground text-base leading-[1.45] font-normal"
+                // style={{ width: `${cardWidths[index]}px` }}
+              >
                 {value.description}
               </p>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );

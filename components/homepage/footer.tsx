@@ -20,8 +20,8 @@ const Footer = () => {
       { label: "See all resources", href: "#" },
     ],
     CONNECT: [
-      { label: "Terms & Conditions", href: "#" },
-      { label: "Privacy Policy", href: "#" },
+      { label: "Terms & Conditions", href: "terms-and-conditions" },
+      { label: "Privacy Policy", href: "privacy-policy" },
     ],
   };
 

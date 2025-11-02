@@ -134,6 +134,19 @@
     background-color: var(--color-background-secondary);
 }
 
+/* Career Hero Background */
+.career_hero {
+    position: relative;
+    /* Dark theme background gradient */
+    background: linear-gradient(195.87deg, rgba(12, 8, 31, 1) 17.22%, rgba(13, 29, 83, 1) 50.514%, rgba(12, 8, 31, 1) 85.112%),
+                linear-gradient(90deg, rgba(19, 16, 38, 1) 0%, rgba(19, 16, 38, 1) 100%);
+}
+
+/* Light theme career hero gradient background */
+[data-theme="light"] .career_hero {
+    background: linear-gradient(218deg, rgba(151, 21, 250, 0.40) 17.22%, rgba(0, 136, 255, 0.30) 50.51%, rgba(195, 195, 195, 0.20) 85.11%), #FFF;
+}
+
 /* .hero_gradient {
     background: linear-gradient(0deg, #FFFFFF, #FFFFFF),
         linear-gradient(271.06deg, rgba(0, 122, 255, 0.8) 14.34%, rgba(203, 48, 224, 0.8) 60.04%);
