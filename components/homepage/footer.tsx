@@ -57,13 +57,13 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#0C081F] px-6 py-16 flex justify-center">
+    <footer className="bg-background-secondary px-6 py-16 flex justify-center border-t border-border">
       <div className="max-w-6xl mx-auto w-full">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           {/* Render footer sections dynamically */}
           {Object.keys(footerObj).map((section) => (
             <div key={section} className="flex flex-col gap-3">
-              <h3 className="text-white font-semibold text-lg mb-6">
+              <h3 className="text-foreground font-semibold text-lg mb-6">
                 {section}
               </h3>
               <ul className="gap-2 flex flex-col">
@@ -71,7 +71,7 @@ const Footer = () => {
                   <li key={item.label}>
                     <Link
                       href={item.href}
-                      className="text-gray-400 hover:text-white transition-colors"
+                      className="text-muted-foreground hover:text-foreground transition-colors"
                     >
                       {item.label}
                     </Link>
@@ -83,21 +83,23 @@ const Footer = () => {
 
           {/* DOWNLOAD THE APP */}
           <div className=" flex-col gap-3 hidden lg:flex">
-            <h3 className="text-white font-semibold text-lg mb-6">
+            <h3 className="text-foreground font-semibold text-lg mb-6">
               DOWNLOAD THE APP
             </h3>
-            <p className="text-gray-400 mb-6">Coming Soon</p>
+            <p className="text-muted-foreground mb-6">Coming Soon</p>
 
             <div className="space-y-3 flex flex-col gap-4">
               {appDownloads.map((app) => (
                 <div
                   key={app.platform}
-                  className="bg-gray-300 rounded-lg px-4 py-2 flex items-center gap-3"
+                  className="bg-card border border-border rounded-lg px-4 py-2 flex items-center gap-3"
                 >
-                  {app.icon}
+                  <span className="text-foreground">{app.icon}</span>
                   <div>
-                    <div className="text-gray-600 text-xs">{app.status}</div>
-                    <div className="text-black font-semibold">
+                    <div className="text-muted-foreground text-xs">
+                      {app.status}
+                    </div>
+                    <div className="text-foreground font-semibold">
                       {app.platform}
                     </div>
                   </div>
@@ -107,13 +109,13 @@ const Footer = () => {
 
             {/* Social Links */}
             <div className="flex flex-col gap-3">
-              <p className="text-gray-400">Follow Us On:</p>
+              <p className="text-muted-foreground">Follow Us On:</p>
               <div className="flex gap-4">
                 {socialLinks.map((social) => (
                   <Link
                     key={social.name}
                     href={social.href}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
                     aria-label={social.name}
                   >
                     {social.icon}
@@ -125,7 +127,9 @@ const Footer = () => {
         </div>
 
         <div className="pt-8 text-center">
-          <p className="text-gray-400">Copyright © 2025 EpickSet Studio</p>
+          <p className="text-muted-foreground">
+            Copyright © 2025 EpickSet Studio
+          </p>
         </div>
       </div>
     </footer>

@@ -32,16 +32,16 @@ const Questions = () => {
   ];
 
   return (
-    <section className="bg-[#131026] px-6 md:px-10 lg:px-[120px] py-16 flex justify-center">
+    <section className="bg-background dark:bg-secondary px-6 md:px-10 lg:px-[120px] py-16 flex justify-center">
       <div className="max-w-6xl mx-auto flex flex-col gap-10 w-full">
         <div className="flex flex-col gap-5">
-          <h2 className="text-[#f1efff] font-bold text-[2rem] leading-[48px] tracking-[0.4063px]">
+          <h2 className="text-foreground font-bold text-[2rem] leading-[48px] tracking-[0.4063px]">
             <span className="hidden md:inline">
               Your setlist questions answered
             </span>
             <span className="md:hidden">Your setlist questions, answered</span>
           </h2>
-          <p className="text-[#f1efff] text-lg leading-[1.45]">
+          <p className="text-foreground text-lg leading-[1.45]">
             Explore helpful tips for organizing setlists, managing lyrics, and
             making your music flow smoother, right at your fingertips.
           </p>
@@ -53,12 +53,12 @@ const Questions = () => {
               <AccordionItem
                 value={index.toString()}
                 key={index}
-                className="border-b border-[#f1efff] border-t-0 border-l-0 border-r-0 min-h-[57px]"
+                className="border-b border-foreground/20 border-t-0 border-l-0 border-r-0 min-h-[57px]"
               >
-                <AccordionTrigger className="text-[#f1efff] font-medium text-base leading-[1.45] tracking-[-0.2px] py-6 pr-6 items-center hover:text-[#6927DA] hover:no-underline [&>svg]:text-[#f1efff]">
+                <AccordionTrigger className="text-foreground font-medium text-base leading-[1.45] tracking-[-0.2px] py-6 pr-6 items-center hover:text-purple hover:no-underline [&>svg]:text-foreground">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-[#f1efff] text-base leading-[1.45] pr-6 pb-4">
+                <AccordionContent className="text-foreground text-base leading-[1.45] pr-6 pb-4">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

@@ -23,14 +23,14 @@ const Contact = () => {
   ];
 
   return (
-    <section className="w-full mx-auto flex flex-col px-6 items-center py-24 bg-[#131026]">
+    <section className="w-full dark:bg-secondary mx-auto flex flex-col px-6 items-center py-24 bg-background">
       <div className="flex flex-col justify-center max-w-6xl  items-center gap-8 w-full mx-auto">
         <div className="heading text-center w-full">
           <div className="w-full">
-            <h2 className="text-[1.8rem] md:text-[2.1rem] text-white font-semibold">
+            <h2 className="text-[1.8rem] md:text-[2.1rem] text-foreground font-semibold">
               Let&apos;s connect and collaborate
             </h2>
-            <p className="text-gray-300   ">
+            <p className="text-foreground/80">
               We&apos;re here to support your music journey and let you
               concentrate in what matters
             </p>
@@ -40,14 +40,18 @@ const Contact = () => {
           {contactCards.map((card) => (
             <div
               key={card.address}
-              className="border border-[#1447E6] rounded-md px-4 w-full max-w-md py-9 flex flex-col items-center justify-center gap-3"
+              className="border border-blue rounded-md px-4 w-full max-w-md py-9 flex flex-col items-center justify-center gap-3 bg-card"
             >
-              <span className="text-[#1447E6] bg-[#1449e635] p-4 rounded-full">
+              <span className="text-blue bg-blue/20 p-4 rounded-full">
                 {card.icon}
               </span>
-              <h3 className="text-white font-semibold">{card.title}</h3>
-              <p className="text-sm text-gray-300">{card.availability}</p>
-              <p className="text-sm text-gray-300">{card.address}</p>
+              <h3 className="text-card-foreground font-semibold">
+                {card.title}
+              </h3>
+              <p className="text-sm text-card-foreground/80">
+                {card.availability}
+              </p>
+              <p className="text-sm text-card-foreground/80">{card.address}</p>
             </div>
           ))}
         </div>

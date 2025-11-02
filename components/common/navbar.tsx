@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "./theme-toggle";
 
 const navItems = [
   {
@@ -37,58 +38,71 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar bg-[#0C081F] px-4 md:px-8 py-5 flex items-center justify-between relative border-white">
-      <div className="">
+    <nav className="navbar bg-background px-4 md:px-8 py-5 flex items-center justify-between relative border-b border-border">
+      <div className="relative">
         <Link href="/">
           <Image
             src="/logo-dark-mode.svg"
             alt="logo"
             width={100}
             height={100}
+            className="dark:opacity-100 opacity-0 absolute inset-0"
+          />
+          <Image
+            src="/logo-light-mode.svg"
+            alt="logo"
+            width={100}
+            height={100}
+            className="dark:opacity-0 opacity-100 relative"
           />
         </Link>
       </div>
 
       {/* Desktop Menu */}
-      <menu className="hidden md:flex items-center gap-6 lg:gap-10">
+      <menu className="hidden md:flex items-center gap-4 lg:gap-6">
         {navItems.map((navItem) => {
           const active = isActive(navItem.refLink);
           return (
             <Link
               href={navItem.refLink}
               key={navItem.ref}
-              className={`text-gray-200 text-base font-medium relative transition-colors hover:text-white ${
-                active ? "text-white" : ""
+              className={`text-foreground/80 text-base font-medium relative transition-colors hover:text-foreground ${
+                active ? "text-foreground" : ""
               }`}
             >
               {navItem.ref}
               {active && (
-                <span className="absolute -bottom-2 left-0 right-0 h-0.5 bg-[#CB30E0] block"></span>
+                <span className="absolute -bottom-2 left-0 right-0 h-0.5 bg-accent block"></span>
               )}
             </Link>
           );
         })}
 
+        <ThemeToggle />
+
         <Link
           href={"#"}
-          className="bg-white px-5 py-2.5 rounded-md text-[#0c081F] font-medium hover:bg-gray-100 transition-colors"
+          className="bg-foreground text-background px-5 py-2.5 rounded-md font-medium hover:opacity-90 transition-opacity"
         >
           Get Started
         </Link>
       </menu>
 
       {/* Mobile Menu Button */}
-      <button
-        className="md:hidden text-gray-200 hover:text-white transition-colors"
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        aria-label="Toggle menu"
-      >
-        {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
+      <div className="md:hidden flex items-center gap-2">
+        <ThemeToggle />
+        <button
+          className="text-foreground/80 hover:text-foreground transition-colors"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-[#0C081F] border-b border-white md:hidden z-50">
+        <div className="absolute top-full left-0 right-0 bg-background border-b border-border md:hidden z-50">
           <menu className="flex flex-col px-4 py-4 gap-4">
             {navItems.map((navItem) => {
               const active = isActive(navItem.refLink);
@@ -97,13 +111,13 @@ const Navbar = () => {
                   href={navItem.refLink}
                   key={navItem.ref}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`text-gray-200 text-base font-medium py-2 relative transition-colors hover:text-white ${
-                    active ? "text-white" : ""
+                  className={`text-foreground/80 text-base font-medium py-2 relative transition-colors hover:text-foreground ${
+                    active ? "text-foreground" : ""
                   }`}
                 >
                   {navItem.ref}
                   {active && (
-                    <span className="absolute bottom-0 left-0 w-12 h-0.5 bg-[#CB30E0] block"></span>
+                    <span className="absolute bottom-0 left-0 w-12 h-0.5 bg-accent block"></span>
                   )}
                 </Link>
               );
@@ -111,7 +125,7 @@ const Navbar = () => {
             <Link
               href={"#"}
               onClick={() => setIsMenuOpen(false)}
-              className="bg-white px-5 py-2.5 rounded-md text-[#0c081F] font-medium hover:bg-gray-100 transition-colors text-center mt-2"
+              className="bg-foreground text-background px-5 py-2.5 rounded-md font-medium hover:opacity-90 transition-opacity text-center mt-2"
             >
               Get Started
             </Link>

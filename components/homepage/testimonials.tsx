@@ -32,13 +32,13 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="bg-[#0c081f] px-6 md:px-10 lg:px-[120px] py-16 flex justify-center">
+    <section className="bg-background-secondary dark:bg-secondary px-6 md:px-10 lg:px-[120px] py-16 flex justify-center">
       <div className="max-w-6xl mx-auto flex flex-col gap-10 w-full">
         <div className="flex flex-col gap-6">
-          <h2 className="text-[#f1efff] font-bold text-[2rem] leading-[1.2]">
+          <h2 className="text-foreground font-bold text-[2rem] leading-[1.2]">
             Real stories from real musicians
           </h2>
-          <p className="text-[#f1efff] text-lg leading-normal">
+          <p className="text-foreground text-lg leading-normal">
             Discover how artists stay focused, creative, and ready for every
             performance.
           </p>
@@ -53,7 +53,7 @@ const Testimonials = () => {
               {/* Content */}
               <div className="relative p-6 flex flex-col justify-center h-full gap-6 rounded-[16px] z-10">
                 <p
-                  className={`text-[#f1efff] text-lg md:text-base lg:text-base leading-normal italic ${
+                  className={`text-foreground text-lg md:text-base lg:text-base leading-normal italic ${
                     testimonial.quoteStyle === "medium-italic"
                       ? "font-medium"
                       : "font-normal"
@@ -62,7 +62,7 @@ const Testimonials = () => {
                   &quot;{testimonial.quote}&quot;
                 </p>
 
-                <div className="bg-[#1c1735] px-4 py-6 rounded-[16px]">
+                <div className="bg-card px-4 py-6 rounded-[16px]">
                   <div className="flex flex-row md:flex-col gap-5 md:gap-5 items-center md:items-start">
                     <Image
                       src={testimonial.image}
@@ -72,10 +72,10 @@ const Testimonials = () => {
                       className="rounded-full object-cover size-[60px] shrink-0"
                     />
                     <div className="flex flex-col gap-1 flex-1 md:flex-none">
-                      <h4 className="text-[#f1efff] font-bold text-lg leading-normal">
+                      <h4 className="text-card-foreground font-bold text-lg leading-normal">
                         {testimonial.name}
                       </h4>
-                      <p className="text-[#f1efff] font-normal text-base leading-normal">
+                      <p className="text-card-foreground font-normal text-base leading-normal">
                         {testimonial.role}
                       </p>
                     </div>

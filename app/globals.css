@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+/* Enable dark mode variant for Tailwind v4 */
+@variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 * {
     margin: 0;
@@ -7,16 +9,56 @@
     box-sizing: border-box;
 }
 
-:root {
-    --main-color: #0C081F;
+/* Theme color definitions using @theme directive */
+@theme {
+    /* Light theme colors (default) */
+    --color-background: #FFFFFF;
+    --color-foreground: #0C081F;
+    --color-muted-foreground: #4A5568;
+    --color-card: #F7F7F7;
+    --color-card-foreground: #0C081F;
+    --color-secondary: #131026;
+    --color-secondary-foreground: #F1EFFF;
+    --color-border: rgba(0, 0, 0, 0.1);
+    --color-accent: #CB30E0;
+    --color-primary: #9715FA;
+    --color-primary-foreground: #FFFFFF;
+    --color-purple: #6927DA;
+    --color-blue: #0088FF;
+    --color-nav-border: rgba(0, 0, 0, 0.1);
+    --color-background-secondary: #F3F3F3;
+}
 
+/* Dark theme overrides */
+[data-theme="dark"] {
+    --color-background: #0C081F;
+    --color-foreground: #F1EFFF;
+    --color-muted-foreground: #D9D9D9;
+    --color-card: #131026;
+    --color-card-foreground: #F1EFFF;
+    --color-secondary: #131026;
+    --color-secondary-foreground: #F1EFFF;
+    --color-border: rgba(255, 255, 255, 0.1);
+    --color-accent: #6927DA;
+    --color-primary: #9715FA;
+    --color-primary-foreground: #FFFFFF;
+    --color-purple: #6927DA;
+    --color-blue: #235CFB;
+    --color-nav-border: rgba(255, 255, 255, 0.1);
+    --color-background-secondary: #0C081F;
 }
 
 
 .hero {
     position: relative;
+    /* Dark theme background */
     background: linear-gradient(195.87deg, rgba(12, 8, 31, 1) 17.22%, rgba(13, 29, 83, 1) 50.514%, rgba(12, 8, 31, 1) 85.112%),
                 linear-gradient(90deg, rgba(19, 16, 38, 1) 0%, rgba(19, 16, 38, 1) 100%);
+}
+
+/* Light theme hero background */
+[data-theme="light"] .hero {
+    background: linear-gradient(218deg, rgba(151, 21, 250, 0.40) 17.22%, rgba(0, 136, 255, 0.30) 50.51%, rgba(195, 195, 195, 0.20) 85.11%), #FFF;
 }
 
 .hero::before {
@@ -46,8 +88,8 @@
 
 .testimonial-card {
     border-radius: 16px;
-    border: 1px solid #6927DA;
-    background: #1C1735;
+    border: 1px solid var(--color-purple);
+    background: var(--color-card);
     box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.20);
     backdrop-filter: blur(20px);
     position: relative;
@@ -76,6 +118,20 @@
     background-repeat: no-repeat;
     mix-blend-mode: overlay;
     z-index: 0;
+}
+
+/* Light theme adjustments for testimonial card */
+[data-theme="light"] .testimonial-card {
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.10);
+}
+
+[data-theme="light"] .testimonial-card::after {
+    background: linear-gradient(180deg, rgba(151, 21, 250, 0.08) 0%, rgba(0, 136, 255, 0.04) 100%);
+}
+
+/* Background secondary utility */
+.bg-background-secondary {
+    background-color: var(--color-background-secondary);
 }
 
 /* .hero_gradient {

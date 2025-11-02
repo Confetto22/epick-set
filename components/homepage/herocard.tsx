@@ -10,12 +10,14 @@ import { CarouselHorizontal } from "../common/horizontal-carousel";
 
 const downloads = [
   {
-    icon: <FaApple className="text-white text-xl" />,
+    icon: <FaApple className="text-background dark:text-foreground text-xl" />,
     title: "Download on the",
     store: "App Store",
   },
   {
-    icon: <IoLogoGooglePlaystore className="text-white text-xl" />,
+    icon: (
+      <IoLogoGooglePlaystore className="text-background dark:text-foreground text-xl" />
+    ),
     title: "GET IT ON",
     store: "Google Play",
   },
@@ -60,7 +62,7 @@ const HeroCard = () => {
       {/* Left Content */}
       <div className="flex flex-col col-span-3 items-start gap-6 max-w-xl">
         <div className="flex flex-col gap-6 items-start w-full">
-          <h1 className="text-white font-semibold text-5xl sm:text-6xl md:text-[3.25rem] leading-[1.1]">
+          <h1 className="text-foreground font-semibold text-5xl sm:text-6xl md:text-[3.25rem] leading-[1.1]">
             <p className="flex flex-col gap-2 md:flex-row">
               <span className="block">Create.</span>
               <span className="block">
@@ -70,7 +72,7 @@ const HeroCard = () => {
             <span className="block">Perform.</span>
           </h1>
 
-          <p className="text-[#d9d9d9] text-lg leading-[1.45] max-w-none">
+          <p className="text-muted-foreground text-lg leading-[1.45] max-w-none">
             Welcome to your creative hub, where set-lists, lyrics, and chords
             come together, and every show feels effortless. Let us handle the
             details, so you can focus on what you love: making music and
@@ -79,17 +81,17 @@ const HeroCard = () => {
         </div>
 
         <div className="flex flex-col justify-center md:justify-start md:flex-row w-full gap-6 pt-4">
-          <button className="bg-white text-black px-5 py-2.5 rounded-lg font-medium hover:bg-gray-100 transition-colors w-full md:w-auto">
+          <button className="dark:bg-foreground border-border w-52 dark:text-background bg-background text-foreground px-5 py-2.5 rounded-lg font-medium hover:opacity-90 transition-opacity md:w-auto">
             Sign Up
           </button>
-          <button className="bg-linear-to-r from-[#9715fa] to-[#235cfb] text-white px-5 py-2.5 rounded-lg font-medium flex items-center justify-center gap-5 hover:opacity-90 transition-opacity w-full md:w-auto">
+          <button className="bg-linear-to-r from-primary to-blue text-primary-foreground px-5 py-2.5 rounded-lg font-medium flex items-center justify-center gap-5 hover:opacity-90 transition-opacity w-full md:w-auto">
             <Sparkles size={24} />
             <span>Create Your First Setlist</span>
           </button>
         </div>
 
         <div className="hidden md:flex flex-col gap-3 pt-4">
-          <p className="text-[#d9d9d9] text-sm">
+          <p className="text-muted-foreground text-sm">
             <span className="font-medium">Download the app: </span>
             <span className="font-semibold">Coming Soon</span>
           </p>
@@ -98,14 +100,14 @@ const HeroCard = () => {
             {downloads.map((download) => (
               <div
                 key={download.title}
-                className="bg-black border border-[#364153] rounded-[10px] px-[25px] py-3 flex items-center gap-3 hover:border-gray-500 transition-colors cursor-pointer"
+                className="bg-foreground text-background dark:bg-background dark:text-foreground border border-border rounded-[10px] px-[25px] py-3 flex items-center gap-3 hover:border-purple transition-colors cursor-pointer"
               >
                 {download.icon}
                 <div>
-                  <p className="text-white text-[10px] leading-[12.5px] tracking-[0.1172px]">
+                  <p className="text-[10px] leading-[12.5px] tracking-[0.1172px]">
                     {download.title}
                   </p>
-                  <p className="text-white text-sm font-semibold leading-[17.5px] tracking-[-0.1504px]">
+                  <p className="text-sm font-semibold leading-[17.5px] tracking-[-0.1504px]">
                     {download.store}
                   </p>
                 </div>

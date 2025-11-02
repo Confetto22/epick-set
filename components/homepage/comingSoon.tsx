@@ -29,17 +29,17 @@ const benefits = [
 ];
 const ComingSoon = () => {
   return (
-    <section className="px-6  justify-center hidden lg:flex py-24 bg-[#131026]">
+    <section className="px-6 dark:bg-secondary justify-center hidden lg:flex py-24 bg-background">
       <div className="content flex flex-col items-center gap-5 justify-center max-w-6xl mx-auto w-full text-center">
-        <div className=" bg-[#6927DA] w-full text-white px-8 max-w-sm  font-medium mb-12">
+        <div className=" bg-purple w-full text-primary-foreground px-8 max-w-sm  font-medium mb-12">
           Coming Soon
         </div>
 
-        <h2 className="text-white font-semibold text-[1.8rem] md:text-[2.1rem]">
+        <h2 className="text-foreground font-semibold text-[1.8rem] md:text-[2.1rem]">
           Take EpickSet anywhere you go
         </h2>
 
-        <p className="text-gray-300  max-w-xl mx-auto mb-16 leading-relaxed">
+        <p className="text-foreground/80  max-w-xl mx-auto mb-16 leading-relaxed">
           Our mobile apps for iOS and Android are launching soon! Sign up for
           our newsletter below to be notified when they&apos;re available. In
           the meantime, use our web platform on any desktop browser.
@@ -48,13 +48,13 @@ const ComingSoon = () => {
         <div className=" justify-center gap-6  w-full  max-w-lg grid grid-cols-2">
           {comingSoon.map((coming) => (
             <div
-              className="bg-gray-300 rounded-lg px-5 py-2 flex items-center gap-5 "
+              className="bg-card border border-border rounded-lg px-5 py-2 flex items-center gap-5 "
               key={coming.platform}
             >
-              <span>{coming.icon}</span>
+              <span className="text-foreground">{coming.icon}</span>
               <div className="text-left">
-                <div className="text-gray-600 text-xs">Coming Soon</div>
-                <div className="text-black font-semibold ">
+                <div className="text-muted-foreground text-xs">Coming Soon</div>
+                <div className="text-card-foreground font-semibold ">
                   {coming.platform}
                 </div>
               </div>
@@ -62,12 +62,12 @@ const ComingSoon = () => {
           ))}
         </div>
 
-        <div className="flex justify-center items-center gap-8 text-gray-400">
+        <div className="flex justify-center items-center gap-8 text-muted-foreground">
           {benefits.map((benefit) => (
             <div className="flex items-center gap-1" key={benefit.title}>
-              <span className="text-[#6927DA]">{benefit.icon}</span>
-              <span className="text-gray-300 text-[.9rem]">
-                iOS & Android Apps
+              <span className="text-purple">{benefit.icon}</span>
+              <span className="text-foreground text-[.9rem]">
+                {benefit.title}
               </span>
             </div>
           ))}
