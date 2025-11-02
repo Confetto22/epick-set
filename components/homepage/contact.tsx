@@ -36,11 +36,11 @@ const Contact = () => {
             </p>
           </div>
         </div>
-        <div className="contact_cards w-full grid md:grid-cols-3 lg:grid-cols-3 gap-7 ">
+        <div className="contact_cards w-full grid md:grid-cols-3 lg:grid-cols-3 gap-7 justify-items-center">
           {contactCards.map((card) => (
             <div
               key={card.address}
-              className="border border-[#1447E6] rounded-md px-4 w-full py-9 flex flex-col items-center justify-center gap-3"
+              className="border border-[#1447E6] rounded-md px-4 w-full max-w-md py-9 flex flex-col items-center justify-center gap-3"
             >
               <span className="text-[#1447E6] bg-[#1449e635] p-4 rounded-full">
                 {card.icon}

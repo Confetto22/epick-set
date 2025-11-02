@@ -12,8 +12,9 @@ const Pricing = () => {
         "Community support",
       ],
       buttonText: "Get Started Free",
-      buttonStyle: "border border-gray-600 text-white hover:bg-gray-800",
+      buttonStyle: "border border-[#f1efff] text-[#f1efff]",
       popular: false,
+      borderColor: "#717182",
     },
     {
       name: "Solo",
@@ -29,8 +30,9 @@ const Pricing = () => {
         "Priority support",
       ],
       buttonText: "Start Solo Plan",
-      buttonStyle: "bg-linear-to-b from-[#9715FA] to-[#235CFB] text-white",
+      buttonStyle: "bg-gradient-to-b from-[#9715fa] to-[#235cfb] text-white",
       popular: true,
+      borderColor: "#6927da",
     },
     {
       name: "Band",
@@ -46,94 +48,101 @@ const Pricing = () => {
         "Premium support",
       ],
       buttonText: "Start Band Plan",
-      buttonStyle: "border border-gray-600 text-white hover:bg-gray-800",
+      buttonStyle: "border border-[#f1efff] text-[#f1efff]",
       popular: false,
+      borderColor: "#717182",
     },
   ];
 
   return (
-    <section className="px-6 py-24 flex justify-center bg-[#0C081F]">
-      <div className="max-w-6xl mx-auto grid gap-12">
-        <div className="text-center mb-16  flex flex-col items-center justify-center">
-          <h2 className="text-white font-semibold text-[1.6rem] md:text-[2.2rem] mb-6">
+    <section className="bg-[#0c081f] px-6 md:px-10 py-10 lg:py-10 flex justify-center">
+      <div className="max-w-6xl mx-auto justify-center flex flex-col gap-16 w-full">
+        <div className="flex flex-col gap-5 items-center">
+          <h2 className="text-[#f1efff] font-bold text-[2rem] leading-[48px] tracking-[0.4063px] text-center">
             Choose your music plan
           </h2>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+          <p className="text-[#f1efff] text-lg leading-[28px] tracking-[-0.4395px] text-center max-w-[732px]">
             From solo artists to full bands, find the perfect plan to organize
             your music and elevate your performances.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full justify-items-center">
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative rounded-2xl p-8 border flex flex-col items-start gap-8 ${
-                plan.popular
-                  ? "border-[#6927DA] bg-[#201b2a37]"
-                  : "border-gray-700 bg-[#201b2a37]"
-              }`}
+              className={`relative bg-[#131026] rounded-[10px] border ${
+                plan.popular ? "border-[#6927da]" : "border-[#717182]"
+              } flex flex-col max-w-md w-full`}
             >
               {plan.popular && (
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-linear-to-b from-[#9715FA] to-[#235CFB] text-white px-4 py-1 rounded-lg text-sm font-medium">
-                    Most Popular
-                  </span>
+                <div className="absolute -top-[11px] left-1/2 -translate-x-1/2 z-10">
+                  <div className="bg-linear-to-b from-[#9715fa] to-[#235cfb] rounded-[8px] px-[17px] py-[5px] border border-transparent">
+                    <span className="text-white font-medium text-xs leading-4">
+                      Most Popular
+                    </span>
+                  </div>
                 </div>
               )}
 
-              <div className="mb-8 grid gap-2">
-                <h3 className="text-white text-2xl  font-semibold ">
-                  {plan.name}
-                </h3>
-                <div className="flex items-baseline mb-4">
-                  <span className="text-white text-5xl font-bold">
-                    {plan.price}
-                  </span>
-                  <span className="text-gray-400 text-lg ml-1">
-                    {plan.period}
-                  </span>
+              <div className="flex flex-col justify-center h-full gap-8 p-8 flex-1">
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-[#f1efff] font-bold text-2xl leading-8 tracking-[0.0703px]">
+                    {plan.name}
+                  </h3>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-[#f1efff] font-bold text-4xl leading-10 tracking-[0.3691px]">
+                      {plan.price}
+                    </span>
+                    <span className="text-[#d9d9d9] font-normal text-base leading-6 tracking-[-0.3125px]">
+                      {plan.period}
+                    </span>
+                  </div>
+                  <p className="text-[#d9d9d9] font-normal text-base leading-6 tracking-[-0.3125px]">
+                    {plan.description}
+                  </p>
                 </div>
-                <p className="text-gray-400">{plan.description}</p>
+
+                <ul className="flex flex-col w-full gap-4 flex-1">
+                  {plan.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-center gap-3">
+                      <svg
+                        className="w-5 h-5 text-[#6927DA] shrink-0"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      <span className="text-[#f1efff] font-normal text-base leading-6 tracking-[-0.3125px]">
+                        {feature}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                <button
+                  className={`w-full py-2 px-4 rounded-lg font-medium text-sm leading-5 tracking-[-0.1504px] transition-colors ${plan.buttonStyle}`}
+                >
+                  {plan.buttonText}
+                </button>
               </div>
-
-              <ul className="space-y-4 mb-8 grid gap-4">
-                {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center gap-3">
-                    <svg
-                      className="w-5 h-5 text-[#6927DA] flex-shrink-0"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span className="text-gray-300">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <button
-                className={`w-full py-1 px-6 rounded-lg font-medium transition-colors  ${plan.buttonStyle}`}
-              >
-                {plan.buttonText}
-              </button>
             </div>
           ))}
         </div>
 
-        <div className="text-center flex flex-col gap-3">
-          <p className="text-gray-400 text-lg mb-6">
+        <div className="flex flex-col gap-4 items-center">
+          <p className="text-[#d9d9d9] font-normal text-base leading-6 tracking-[-0.3125px] text-center">
             All plans include cloud sync, regular updates, and access to our
             growing music library
           </p>
-          <div className="flex md:flex-row flex-col justify-center items-center gap-8 text-gray-400">
+          <div className="flex flex-wrap justify-center items-center gap-6">
             <div className="flex items-center gap-2">
               <svg
-                className="w-5 h-5 text-[#6927DA]"
+                className="w-4 h-4 text-[#6927DA] shrink-0"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -143,11 +152,13 @@ const Pricing = () => {
                   clipRule="evenodd"
                 />
               </svg>
-              <span>30-day free trial</span>
+              <span className="text-[#d9d9d9] font-normal text-sm leading-5 tracking-[-0.1504px]">
+                30-day free trial
+              </span>
             </div>
             <div className="flex items-center gap-2">
               <svg
-                className="w-5 h-5 text-[#6927DA]"
+                className="w-4 h-4 text-[#6927DA] shrink-0"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -157,11 +168,13 @@ const Pricing = () => {
                   clipRule="evenodd"
                 />
               </svg>
-              <span>Cancel anytime</span>
+              <span className="text-[#d9d9d9] font-normal text-sm leading-5 tracking-[-0.1504px]">
+                Cancel anytime
+              </span>
             </div>
             <div className="flex items-center gap-2">
               <svg
-                className="w-5 h-5 text-[#6927DA]"
+                className="w-4 h-4 text-[#6927DA] shrink-0"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -171,7 +184,9 @@ const Pricing = () => {
                   clipRule="evenodd"
                 />
               </svg>
-              <span>No setup fees</span>
+              <span className="text-[#d9d9d9] font-normal text-sm leading-5 tracking-[-0.1504px]">
+                No setup fees
+              </span>
             </div>
           </div>
         </div>

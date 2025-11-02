@@ -1,0 +1,32 @@
+/* Horizontal carousel specific styles */
+.horizontal-carousel {
+    overflow: hidden;
+    position: relative;
+}
+
+.horizontal-carousel .swiper {
+    overflow: hidden !important;
+    width: 100% !important;
+}
+
+/* .horizontal-carousel .swiper-wrapper {
+    overflow: hidden !important;
+    width: 100% !important;
+    display: flex;
+} */
+
+.horizontal-carousel .swiper-slide {
+    /* width: 100% !important;
+    max-width: 100% !important; */
+    flex-shrink: 0 !important;
+    height: 100% !important;
+    box-sizing: border-box;
+}
+
+.horizontal-carousel .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+

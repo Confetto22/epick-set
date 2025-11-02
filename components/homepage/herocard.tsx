@@ -3,9 +3,10 @@ import Image from "next/image";
 import { FaApple } from "react-icons/fa";
 import { IoLogoGooglePlaystore } from "react-icons/io5";
 import {
-  CarouselHorizontal,
+  // CarouselHorizontal,
   CarouselVertical,
 } from "../common/carousel-vertical";
+import { CarouselHorizontal } from "../common/horizontal-carousel";
 
 const downloads = [
   {
@@ -55,53 +56,62 @@ const images = [
 
 const HeroCard = () => {
   return (
-    <div className="max-w-6xl mx-auto  grid md:grid-cols-5  items-center gap-18">
+    <div className="max-w-6xl mx-auto grid md:grid-cols-5 items-center gap-20">
       {/* Left Content */}
-      <div className=" flex flex-col col-span-3 items-start gap-5 max-w-xl">
-        <h1 className="text-white font-semibold text-[1.8rem] md:text-[4rem] leading-[3.8rem] mb-6">
-          Create.{" "}
-          <span className="bg-linear-to-r from-[#a855f7] to-[#3b82f6]  bg-clip-text text-transparent">
-            Collaborate.
-          </span>{" "}
-          Perform.
-        </h1>
+      <div className="flex flex-col col-span-3 items-start gap-6 max-w-xl">
+        <div className="flex flex-col gap-6 items-start w-full">
+          <h1 className="text-white font-semibold text-5xl sm:text-6xl md:text-[3.25rem] leading-[1.1]">
+            <p className="flex flex-col gap-2 md:flex-row">
+              <span className="block">Create.</span>
+              <span className="block">
+                <span className="gradient-text">Collaborate.</span>
+              </span>
+            </p>
+            <span className="block">Perform.</span>
+          </h1>
 
-        <p className="text-gray-300 text-wrap">
-          Welcome to your creative hub, where set-lists, lyrics, and chords come
-          together, and every show feels effortless. Let us handle the details,
-          so you can focus on what you love: making music and connecting with
-          your audience.
-        </p>
+          <p className="text-[#d9d9d9] text-lg leading-[1.45] max-w-none">
+            Welcome to your creative hub, where set-lists, lyrics, and chords
+            come together, and every show feels effortless. Let us handle the
+            details, so you can focus on what you love: making music and
+            connecting with your audience.
+          </p>
+        </div>
 
-        <div className="flex flex-col md:flex-row w-full  gap-4 mb-8">
-          <button className="bg-white text-black px-8 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors w-full">
+        <div className="flex flex-col justify-center md:flex-row w-full gap-6 pt-4">
+          <button className="bg-white text-black px-5 py-2.5 rounded-lg font-medium hover:bg-gray-100 transition-colors w-full md:w-auto">
             Sign Up
           </button>
-          <button className="bg-linear-to-r from-[#a855f7] to-[#3b82f6] text-white px-8 py-2 rounded-lg font-medium flex items-center gap-2 hover:opacity-90 transition-opacity w-full">
-            <Sparkles size={20} />
-            Create Your First Setlist
+          <button className="bg-linear-to-r from-[#9715fa] to-[#235cfb] text-white px-5 py-2.5 rounded-lg font-medium flex items-center justify-center gap-5 hover:opacity-90 transition-opacity w-full md:w-auto">
+            <Sparkles size={24} />
+            <span>Create Your First Setlist</span>
           </button>
         </div>
 
-        <p className="text-gray-400 text-sm mb-4 hidden md:flex">
-          Download the app: Coming Soon
-        </p>
+        <div className="hidden md:flex flex-col gap-3 pt-4">
+          <p className="text-[#d9d9d9] text-sm">
+            <span className="font-medium">Download the app: </span>
+            <span className="font-semibold">Coming Soon</span>
+          </p>
 
-        <div className=" gap-4 hidden md:flex">
-          {downloads.map((download) => (
-            <div
-              key={download.title}
-              className="bg-black border border-gray-600 rounded-lg px-4 py-3 flex items-center gap-3 hover:border-gray-500 transition-colors cursor-pointer"
-            >
-              {download.icon}
-              <div>
-                <p className="text-gray-400 text-xs">{download.title}</p>
-                <p className="text-white text-sm font-medium">
-                  {download.store}
-                </p>
+          <div className="flex gap-4">
+            {downloads.map((download) => (
+              <div
+                key={download.title}
+                className="bg-black border border-[#364153] rounded-[10px] px-[25px] py-3 flex items-center gap-3 hover:border-gray-500 transition-colors cursor-pointer"
+              >
+                {download.icon}
+                <div>
+                  <p className="text-white text-[10px] leading-[12.5px] tracking-[0.1172px]">
+                    {download.title}
+                  </p>
+                  <p className="text-white text-sm font-semibold leading-[17.5px] tracking-[-0.1504px]">
+                    {download.store}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 
@@ -109,7 +119,7 @@ const HeroCard = () => {
       <div className="col-span-2 hidden md:flex">
         <CarouselVertical />
       </div>
-      <div className="col-span-2 hidden md:hidden">
+      <div className="col-span-3 md:hidden w-full overflow-hidden">
         <CarouselHorizontal />
       </div>
     </div>

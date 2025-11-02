@@ -35,78 +35,103 @@ export default function Home() {
 
   return (
     <main className="bg-[#0C081F] ">
-      <section className="hero-section min-h-[90vh] bg-[url('https://res.cloudinary.com/dv9aqxptd/image/upload/v1762007655/epick-set/herobg_mmealm.jpg')] bg-cover bg-center">
-        <div className="container min-w-full   min-h-[90vh] bg-[#00000068] px-6  py-8 flex items-center justify-center">
+      <section className="hero min-h-[80vh]">
+        <div className="container min-w-full min-h-[90vh] px-6 py-8 flex items-center justify-center">
           <HeroCard />
         </div>
       </section>
-      <section className="px-11 flex items-center justify-center pb-24 pt-8">
-        <div className="content max-w-6xl mx-auto">
-          <div className="flex  flex-col md:flex-row md:items-center py-12">
-            <h2 className="text-white font-semibold md:w-[50%] text-[1.6rem] md:text-[2rem]">
-              Organise your music, your way
-            </h2>
-            <p className="text-gray-400 md:w-[50%]">
-              Bring every setlist, lyric, and chord together in one place. Plan
-              your next show with ease and keep your creative flow
-              uninterrupted.
-            </p>
-          </div>
-          <div className="cards grid grid-cols-1 md:grid-cols-3 gap-6">
-            {cards.map((card) => (
-              <div
-                key={card.title}
-                className=" rounded-lg border-2 border-gray-700"
-              >
-                <Image
-                  src={card.image}
-                  alt={card.title}
-                  width={400}
-                  height={200}
-                  className="w-full max-h-56 object-cover rounded-t-lg"
-                />
-                <div className="px-4 bg-[#5d548b2f] min-h-36 justify-start py-5 flex flex-col items-start gap-3">
-                  <h3 className="text-white text-xl font-semibold mb-3">
-                    {card.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm">{card.description}</p>
+      <section className="bg-[#0c081f] px-6 py-16 md:py-16 flex items-center justify-center">
+        <div className="content max-w-6xl mx-auto w-full">
+          <div className="flex flex-col gap-16 items-start w-full">
+            <div className="flex flex-col lg:flex-row lg:items-end lg:gap-20 gap-10 justify-center w-full">
+              <h2 className="text-[#f1efff] font-bold text-[2rem] leading-normal">
+                Organise your music, your way
+              </h2>
+              <p className="flex-1 text-[#f1efff] text-lg leading-[1.45]">
+                Bring every setlist, lyric, and chord together in one place.
+                Plan your next show with ease and keep your creative flow
+                uninterrupted.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8 w-full mx-auto justify-items-center">
+              {cards.map((card) => (
+                <div
+                  key={card.title}
+                  className="border border-[#9715fa] rounded-[16px] max-w-md w-full flex flex-col overflow-hidden"
+                >
+                  <div className="h-72 relative">
+                    <Image
+                      src={card.image}
+                      alt={card.title}
+                      width={400}
+                      height={190}
+                      className="w-full h-full object-cover rounded-t-[16px]"
+                    />
+                  </div>
+                  <div className="backdrop-blur-md bg-[#1c1735] flex-1 flex flex-col gap-2 p-6 rounded-b-[16px] text-[#f1efff]">
+                    <h3 className="font-semibold text-xl leading-normal">
+                      {card.title}
+                    </h3>
+                    <p className="text-lg leading-[1.45] tracking-[0.09px]">
+                      {card.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
       <Tools />
 
-      <section className="bg-[url('https://res.cloudinary.com/dv9aqxptd/image/upload/v1761954929/epick-set/section-bg_conpjl.jpg')] bg-cover bg-center">
-        <div className="cover bg-[#23011d35] w-full flex items-center justify-center h-full min-h-[50vh] px-6 py-15">
-          <div className="box bg-[#0C081F] max-w-6xl w-full mx-auto grid gap-5 p-7 md:grid-cols-3">
+      <section className="relative px-6 md:px-10 lg:px-[120px] py-16 flex items-center justify-center">
+        {/* Background Image */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage:
+                "url('https://res.cloudinary.com/dv9aqxptd/image/upload/v1761954929/epick-set/section-bg_conpjl.jpg')",
+            }}
+          />
+          <div className="absolute inset-0 bg-[rgba(151,21,250,0.1)]" />
+        </div>
+
+        {/* Content */}
+        <div className="relative bg-[#0c081f] flex flex-col md:flex-row items-center gap-10 md:gap-[40px] lg:gap-[80px] p-10 rounded-[8px] w-full max-w-6xl">
+          {/* Image */}
+          <div className="w-full md:w-[320px] h-[219px] md:h-auto shrink-0 relative">
             <Image
               src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNvbmNlcnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600"
               alt="gig"
-              width={300}
+              width={320}
               height={400}
-              className="h-full w-full object-cover object-center"
+              className="w-full h-full md:rounded-[10px] rounded-[10px] object-cover"
             />
-            <div className="box_content md:col-span-2 flex  flex-col gap-4">
-              <h3 className="text-white font-semibold text-[1.6rem]">
+          </div>
+
+          {/* Content */}
+          <div className="flex-1 flex flex-col gap-6 md:gap-6 w-full">
+            <div className="flex flex-col gap-6 md:gap-5">
+              <h3 className="text-[#f1efff] font-bold text-[2rem] leading-[1.2]">
                 Streamline your next gig today
               </h3>
-              <menu className="text-gray-300 divide-y-2 divide-[#6927DA] flex flex-col gap-4">
-                <p className="pb-4">
-                  Create setlists, find lyrics, and organize your music-all in
-                  one seamless flow.
-                </p>
-                <p className="pb-4">
-                  Stay in the zone with tools that keep you focused and
-                  inspired.
-                </p>
-                <p>
-                  Plan, collaborate, and get ready for every performance with
-                  ease.
-                </p>
-              </menu>
-              <button className="rounded-md bg-[#6927DA] max-w-[250px] text-white py-2 px-4">
+              <p className="text-[#f1efff] text-lg md:text-sm leading-[1.45] md:leading-normal">
+                Create setlists, find lyrics, and organize your music—all in one
+                seamless flow.
+              </p>
+              <div className="h-px bg-[#6927da] w-full" />
+              <p className="text-[#f1efff] text-lg md:text-sm leading-[1.45] md:leading-normal">
+                Stay in the zone with tools that keep you focused and inspired.
+              </p>
+              <div className="h-px bg-[#6927da] w-full" />
+              <p className="text-[#f1efff] text-lg md:text-sm leading-[1.45] md:leading-normal">
+                Plan, collaborate, and get ready for every performance with
+                ease.
+              </p>
+            </div>
+            <div className="pt-4">
+              <button className="bg-[#6927da] px-12 md:px-16 lg:px-20 py-3 rounded-[10px] text-white font-medium text-base">
                 Sign Up
               </button>
             </div>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const navItems = [
@@ -21,21 +22,24 @@ const navItems = [
 
 const Navbar = () => {
   return (
-    <nav className="navbar bg-[#0C081F]  px-8 py-5 flex items-center justify-between border-b border-white">
-      <div className="logo text-white">logo</div>
-      <menu className="flex items-center gap-6">
+    <nav className="navbar bg-[#0C081F]  px-8 py-5 flex items-center justify-between">
+      <div className="">
+        <Image src="/logo-dark-mode.svg" alt="logo" width={100} height={100} />
+      </div>
+      <menu className="flex items-center gap-10">
         {navItems.map((navItem) => (
           <Link
             href={navItem.refLink}
             key={navItem.ref}
-            className="text-gray-200 "
+            className="text-gray-200 text-base font-medium"
           >
             {navItem.ref}
           </Link>
         ))}
+
         <Link
           href={"#"}
-          className="bg-white px-3 py-2 rounded-md text-[#0c081F]"
+          className="bg-white px-5 py-2.5 rounded-md text-[#0c081F] font-medium"
         >
           Get Started
         </Link>
